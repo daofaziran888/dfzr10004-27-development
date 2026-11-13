@@ -4,6 +4,7 @@ from __future__ import annotations
 from typing import Any
 
 from app.store import store
+from app.services.tag import tag_service
 
 MODULE = "dedup"
 REQUIRED_FIELDS = ["策略编号", "业务键列", "排序字段"]
@@ -29,6 +30,14 @@ class DedupService:
         total = len(rows)
         start = max(page - 1, 0) * size
         return rows[start:start + size], total
+
+    def review_queue(self, batch: str | None = None) -> dict[str, Any]:
+        """去重策略清单里的「待复核清单」：标注结果与人工裁决同步到这里。
+
+        下游入口按批次读取已完成、待处理与冲突数量，再决定是否放行归档。
+        清单本体由标注服务维护，去重侧只做只读汇总，避免两处口径漂移。
+        """
+        return tag_service.review_queue(batch=batch)
 
     def get_entry(self, entry_id: int) -> dict[str, Any] | None:
         return store.find(MODULE, entry_id)

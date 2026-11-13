@@ -28,6 +28,55 @@ class EntryPayload(BaseModel):
     remark: str | None = None
 
 
+class ReviewItem(BaseModel):
+    """批量复核里的一条待确认项：既有标注记录，也带上人工裁决。"""
+
+    id: int
+    decision: str | None = None
+    conclusion: str | None = None
+    tags: list[str] | None = None
+    annotation_type: str | None = None
+    receipt: str | None = None
+    expected_version: int | None = None
+    operator: str | None = None
+
+
+class ReviewSubmitPayload(BaseModel):
+    """一次提交多条标注记录的复核请求。"""
+
+    batch: str
+    items: list[ReviewItem] = Field(default_factory=list)
+    operator: str | None = None
+    tags: list[str] | None = None
+    annotation_type: str | None = None
+    conclusion: str | None = None
+    receipt: str | None = None
+
+
+class BatchReviewPayload(BaseModel):
+    """整组确认或驳回争议的批次级请求。"""
+
+    batch: str
+    items: list[int] = Field(default_factory=list)
+    operator: str | None = None
+    conclusion: str | None = None
+    tags: list[str] | None = None
+    annotation_type: str | None = None
+    receipt: str | None = None
+
+
+class DecisionPayload(BaseModel):
+    """单条标注记录的复核裁定。"""
+
+    decision: str
+    operator: str | None = None
+    conclusion: str | None = None
+    tags: list[str] | None = None
+    annotation_type: str | None = None
+    receipt: str | None = None
+    expected_version: int | None = None
+
+
 
 class TaskplanEntry(BaseModel):
     """采集计划明细结构。"""

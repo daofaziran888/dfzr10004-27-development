@@ -33,3 +33,56 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .link { border: none; background: none; color: var(--brand); cursor: pointer; padding: 0; }
 .page-foot { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--muted); }
 .error-text { color: #b42318; }
+
+/* 批量复核工作台 */
+.panel { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-bottom: 14px; }
+.panel-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+.panel-head h3 { margin: 0; font-size: 15px; }
+.panel-desc { color: var(--muted); font-size: 12px; margin: 4px 0 0; }
+.batch-meta { display: flex; gap: 12px; align-items: stretch; margin-bottom: 10px; flex-wrap: wrap; }
+.policy-card { flex: 1 1 420px; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; background: #f8fafc; }
+.policy-card dl { display: grid; grid-template-columns: 88px 1fr; gap: 4px 10px; margin: 8px 0 0; font-size: 12px; }
+.policy-card dt { color: var(--muted); }
+.policy-card dd { margin: 0; }
+.policy-hint { color: #b45309; font-size: 12px; margin: 8px 0 0; }
+.stat-chips { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
+.chip { border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; font-size: 12px; background: #f8fafc; }
+.chip.done { border-color: #86efac; background: #f0fdf4; color: #166534; }
+.chip.todo { border-color: #bfdbfe; background: #eff6ff; color: #1e40af; }
+.chip.conflict { border-color: #fca5a5; background: #fef2f2; color: #991b1b; }
+.chip.rejected { border-color: #fdba74; background: #fff7ed; color: #9a3412; }
+.review-form { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; margin-bottom: 10px; }
+.filter-item.grow { flex: 1 1 260px; }
+.select { border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; background: #fff; font-size: 13px; }
+.select-sm { padding: 3px 6px; font-size: 12px; }
+.tag-picker { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; flex-basis: 100%; }
+.tag-picker-label { font-size: 12px; color: var(--muted); margin-right: 4px; }
+.tag-option { border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 3px 10px; font-size: 12px; cursor: pointer; }
+.tag-option.active { border-color: var(--brand); background: #eff6ff; color: var(--brand); }
+.tag-pill { display: inline-block; border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; margin: 1px 4px 1px 0; font-size: 12px; background: #f8fafc; }
+.review-actions { display: flex; flex-wrap: wrap; gap: 8px; flex-basis: 100%; }
+.btn.danger { border-color: #fca5a5; color: #b42318; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.check-col { width: 34px; text-align: center; }
+.review-table td { vertical-align: top; }
+.row-muted { background: #fafafa; color: #6b7280; }
+.status-dot { font-size: 12px; }
+.status-dot.conflict { color: #b42318; }
+.status-dot.rejected { color: #b45309; }
+.status-dot.done { color: #166534; }
+.status-dot.ok { color: var(--muted); }
+.muted { color: var(--muted); }
+.block { display: block; }
+.ok-text { color: #166534; }
+.detail-row td { background: #f8fafc; }
+.detail-grid { display: grid; grid-template-columns: 110px 1fr 110px 1fr; gap: 6px 12px; margin: 0 0 8px; font-size: 12px; }
+.detail-grid dt { color: var(--muted); }
+.detail-grid dd { margin: 0; word-break: break-all; }
+.detail-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.receipt-panel { margin-top: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; background: #f8fafc; }
+.receipt-head { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; margin-bottom: 6px; }
+.receipt-list { margin: 0; padding-left: 18px; font-size: 12px; display: flex; flex-direction: column; gap: 4px; }
+.receipt-list li { display: flex; flex-wrap: wrap; gap: 10px; }
+.detail-drawer { position: fixed; right: 16px; bottom: 16px; width: 520px; max-height: 60vh; overflow: auto; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; box-shadow: 0 12px 30px rgba(15, 23, 42, .16); z-index: 20; }
+.queue-table { margin-top: 8px; }
+.queue-policy { font-size: 12px; color: var(--muted); }
